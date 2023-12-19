@@ -27,15 +27,15 @@ class CategoryController extends Controller
     }
 
     /**
-     * Search and filter categorys.
+     * Search and filter categories.
      *
      * @param CategoryRequest $request
      * @return JsonResponse
      *
-     * @queryParam search string required The keyword to search for categorys.
-     * @queryParam sources array required The list of source IDs to filter categorys.
-     * @queryParam categories array required The list of category IDs to filter categorys.
-     * @queryParam categorys array required The list of category IDs to filter categorys.
+     * @queryParam search string required The keyword to search for categories.
+     * @queryParam sources array required The list of source IDs to filter categories.
+     * @queryParam categories array required The list of category IDs to filter categories.
+     * @queryParam categories array required The list of category IDs to filter categories.
      *
      * @response 200 {
      *     "message": "Categorys retrieved successfully"
@@ -44,8 +44,8 @@ class CategoryController extends Controller
      * @throws \Exception
      *
      * @OA\Post(
-     *     path="/category/categorys",
-     *     summary="Search and filter categorys",
+     *     path="/category/categories",
+     *     summary="Search and filter categories",
      *     tags={"Category"},
      *     security={{ "bearerAuth": {} }},
      *     @OA\RequestBody(
@@ -59,7 +59,7 @@ class CategoryController extends Controller
      *                     property="search",
      *                     type="string",
      *                     nullable=true,
-     *                     description="The keyword to search for categorys"
+     *                     description="The keyword to search for categories"
      *                 ),
      *              ),
      *         ),
@@ -74,10 +74,10 @@ class CategoryController extends Controller
      *     @OA\Response(response="500", description="Internal server error"),
      * )
      */
-    public function categorys(CategoryRequest $request): JsonResponse
+    public function categories(CategoryRequest $request): JsonResponse
     {
-        $categorys = $this->categoryService->categorys($request);
+        $categories = $this->categoryService->categories($request);
 
-        return response()->json(['message' => 'Categorys retrieved successfully', 'categorys' => $categorys]);
+        return response()->json(['message' => 'Categorys retrieved successfully', 'categories' => $categories]);
     }
 }

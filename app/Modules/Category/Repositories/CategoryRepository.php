@@ -13,11 +13,11 @@ use App\Modules\UserPreference\Models\UserPreference;
 class CategoryRepository implements CategoryRepositoryInterface
 {
     /**
-     * Search and filter categorys based on the provided data.
+     * Search and filter categories based on the provided data.
      *
      * @return array
      */
-    public function categorys($data): mixed
+    public function categories($data): mixed
     {
         // Assuming you have an Eloquent model named Category
         $query = Category::query();
@@ -31,9 +31,9 @@ class CategoryRepository implements CategoryRepositoryInterface
         }
 
         // Retrieve paginated data
-        $categorys = $query->get();
+        $categories = $query->get();
 
-        return $categorys;
+        return $categories;
     }
     
 

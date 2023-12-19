@@ -14,7 +14,7 @@ Route::prefix('category')->group(function () {
      */
     Route::middleware('auth:sanctum')->group(function () {
         
-        Route::post('/categorys', [CategoryController::class, 'categorys']);
+        Route::post('/categories', [CategoryController::class, 'categories']);
         // Add more user preference routes as needed
         
     });

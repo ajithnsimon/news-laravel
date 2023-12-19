@@ -20,7 +20,8 @@ class ArticleRepository implements ArticleRepositoryInterface
     public function articles($data, $user): mixed
     {
         // Assuming you have an Eloquent model named Article
-        $query = Article::query();
+        $query = Article::query()
+            ->with(['author', 'source', 'category']);
 
         // Apply filters
         if ($data['search']) {

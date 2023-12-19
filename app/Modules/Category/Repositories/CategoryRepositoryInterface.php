@@ -10,10 +10,10 @@ namespace App\Modules\Category\Repositories;
 interface CategoryRepositoryInterface
 {
     /**
-     * Search and filter categorys based on the provided data.
+     * Search and filter categories based on the provided data.
      *
      * @param array $data
      * @return void
      */
-    public function categorys($data): mixed;
+    public function categories($data): mixed;
 }

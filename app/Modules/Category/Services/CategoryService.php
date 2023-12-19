@@ -19,13 +19,13 @@ class CategoryService
     }
 
     /**
-     * Search and filter categorys.
+     * Search and filter categories.
      *
      * @param object $data
      * @return void
      */
-    public function categorys($data): mixed
+    public function categories($data): mixed
     {
-        return $this->categoryRepository->categorys($data);
+        return $this->categoryRepository->categories($data);
     }
 }

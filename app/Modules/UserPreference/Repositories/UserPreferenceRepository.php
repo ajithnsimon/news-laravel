@@ -54,4 +54,9 @@ class UserPreferenceRepository implements UserPreferenceRepositoryInterface
 
         UserPreference::insert($preferences);
     }
+
+    public function getUserPreferences($user)
+    {
+        return UserPreference::where('user_id', $user->id)->get();
+    }
 }

@@ -16,4 +16,12 @@ interface UserPreferenceRepositoryInterface
      * @return void
      */
     public function updateUserPreference($data, $user): void;
+
+    /**
+     * Update user preferences based on the provided data.
+     *
+     * @param array $data
+     * @return void
+     */
+    public function getUserPreferences($user);
 }

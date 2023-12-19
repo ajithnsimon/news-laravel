@@ -15,6 +15,7 @@ Route::prefix('userpreference')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
         
         Route::post('/preferences', [UserPreferenceController::class, 'updateUserPreference']);
+        Route::get('/preferences', [UserPreferenceController::class, 'getUserPreferences']);
         // Add more user preference routes as needed
         
     });

@@ -28,4 +28,16 @@ class UserPreferenceService
     {
         $this->userPreferenceRepository->updateUserPreference($data, $user);
     }
+
+
+    /**
+     * Get user preferences.
+     *
+     * @param object $data
+     * @return void
+     */
+    public function getUserPreferences($user)
+    {
+        return $this->userPreferenceRepository->getUserPreferences($user);
+    }
 }

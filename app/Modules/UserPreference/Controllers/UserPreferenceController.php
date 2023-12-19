@@ -87,4 +87,39 @@ class UserPreferenceController extends Controller
 
         return response()->json(['message' => 'User preference updated successfully']);
     }
+
+    /**
+     * Get user preferences.
+     *
+     * @return JsonResponse
+     *
+     * @OA\Get(
+     *     path="/userpreference/preferences",
+     *     summary="Get user preferences",
+     *     tags={"UserPreference"},
+     *     security={{ "bearerAuth": {} }},
+     *     @OA\Response(
+     *         response="200",
+     *         description="User preferences retrieved successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="sources", type="array", @OA\Items(type="integer")),
+     *             @OA\Property(property="authors", type="array", @OA\Items(type="integer")),
+     *             @OA\Property(property="categories", type="array", @OA\Items(type="integer")),
+     *         ),
+     *     ),
+     *     @OA\Response(response="500", description="Internal server error"),
+     * )
+     */
+    public function getUserPreferences(): JsonResponse
+    {
+        $userPreferences = $this->userPreferenceService->getUserPreferences(auth()->user());
+
+        $preferences = [
+            'sources' => $userPreferences->where('type', 'source')->pluck('typeable_id')->toArray(),
+            'authors' => $userPreferences->where('type', 'author')->pluck('typeable_id')->toArray(),
+            'categories' => $userPreferences->where('type', 'category')->pluck('typeable_id')->toArray(),
+        ];
+
+        return response()->json($preferences);
+    }
 }
